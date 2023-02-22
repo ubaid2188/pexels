@@ -42,7 +42,6 @@
         <!--=============== MAIN ===============-->
         <main class="main" id="main">
 
-            <!-- When inserting your content into sections, remove the section__height class -->
             <!--=============== Home ===============-->
             <section class="section section__height container" id="home">
                 <h1>HOME</h1>
@@ -76,25 +75,10 @@
        
     </body>
         
-    <script>
-        fetch('https://randomuser.me/api/')
-          .then(response => response.json())
-          .then(data => {
-            const user = data.results[0];
-            const name = `${user.name.first} ${user.name.last}`;
-            const email = user.email;
-            const phone = user.phone;
-            const gender = user.gender;
-            const loc = `${user.location.city} ${user.location.country}`;
-            const userDiv = document.querySelector('#user');
-            userDiv.innerHTML = `
-              <h2>${name}</h2>
-              <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Phone:</strong> ${phone}</p>
-              <p><strong>Gender:</strong> ${gender}</p>
-              <p><strong>Loc:</strong> ${loc}</p>
-            `;
-          });
-    </script>
+        <script>
+            fetch('https://api.openweathermap.org/data/2.5/weather?1=bahawalpur&appid=f3f1545f79861467179b8e92868d2b43')
+                .then(response => response.json())
+                .then(data => { console.log(data) });
+        </script>
     
 </html>
