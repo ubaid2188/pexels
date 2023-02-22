@@ -59,7 +59,7 @@
             <section class="section section__height container" id="license">
                 <h1>LIcense</h1>
                 
-            </section>
+            </section
 
             <!--=============== Upload ===============-->
             <section class="section section__height container" id="upload">
@@ -73,5 +73,28 @@
 
             </section>
         </main>
+       
     </body>
+        
+    <script>
+        fetch('https://randomuser.me/api/')
+          .then(response => response.json())
+          .then(data => {
+            const user = data.results[0];
+            const name = `${user.name.first} ${user.name.last}`;
+            const email = user.email;
+            const phone = user.phone;
+            const gender = user.gender;
+            const loc = `${user.location.city} ${user.location.country}`;
+            const userDiv = document.querySelector('#user');
+            userDiv.innerHTML = `
+              <h2>${name}</h2>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Phone:</strong> ${phone}</p>
+              <p><strong>Gender:</strong> ${gender}</p>
+              <p><strong>Loc:</strong> ${loc}</p>
+            `;
+          });
+    </script>
+    
 </html>
